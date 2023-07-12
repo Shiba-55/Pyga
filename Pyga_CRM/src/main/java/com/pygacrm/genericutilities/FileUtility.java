@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Properties;
 
-import org.testng.Reporter;
+
 /**
  * This class is used to get data from external file like properties file
  * @author shiba
