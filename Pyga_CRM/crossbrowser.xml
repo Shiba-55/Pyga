@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite1" parallel="tests" thread-count="2">
+	<listeners>
+		<listener class-name="com.pygacrm.genericutilities.ListnerImplementation"></listener>
+		<listener class-name="com.pygacrm.genericutilities.Itransform"></listener>
+	</listeners>
+  <test  name="chromeBrowser">
+	  <parameter name="browser" value="chrome"></parameter>
+    <classes>
+      <class name="com.pyga.systemtest.OpportunitySystemTest"/>
+      <class name="com.pyga.systemtest.CampaignSystemTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test  name="firefox">
+	  <parameter name="browser" value="firefox"></parameter>
+    <classes>
+      <class name="com.pyga.systemtest.SalesOrderTest"/>
+      <class name="com.pyga.systemtest.Invoice_234Test"/>
+       </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
