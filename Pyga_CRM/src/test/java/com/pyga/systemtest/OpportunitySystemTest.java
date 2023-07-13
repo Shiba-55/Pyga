@@ -51,7 +51,7 @@ public class OpportunitySystemTest extends BaseClass {
 	@Test(groups= {"smokeTest","regressionTest"} )
 	//@Test(retryAnalyzer = com.pygacrm.genericutilities.RetryImplementation.class)
 	public void oppotunitySystem() throws Throwable {
-		Reporter.log("OpportunitySystemTest", true);
+		Reporter.log("***OpportunitySystemTest***", true);
 		
 		String excelpath=flib.getPathFromPropertiesFile("testScript");
 		String org=elib.getExcelDataById(excelpath, "System", "tc_03", "Organization");

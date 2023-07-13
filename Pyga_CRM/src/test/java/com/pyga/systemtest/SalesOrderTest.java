@@ -64,7 +64,7 @@ public class SalesOrderTest extends BaseClass {
 	//@Test(retryAnalyzer = com.pygacrm.genericutilities.RetryImplementation.class)
 	@Test(groups= {"smokeTest","regressionTest"})
 	public void salesorderFromVendor() throws Throwable {
-		Reporter.log("SalesOrderTest", true);
+		Reporter.log("****SalesOrderTest****", true);
 		String excelpath=flib.getPathFromPropertiesFile("testScript");
 		String vend=elib.getExcelDataById(excelpath, "System", "tc_04", "Vedor name");
 		String prod=elib.getExcelDataById(excelpath, "System", "tc_04", "Product Name");

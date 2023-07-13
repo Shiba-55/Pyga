@@ -48,7 +48,7 @@ public class Invoice_234Test extends BaseClass {
 	//@Test(retryAnalyzer = com.pygacrm.genericutilities.RetryImplementation.class)
 	@Test(groups= {"regressionTest"})
 	public void createInvoiceFromVendor() throws Throwable {
-		Reporter.log("Invoice_234Test", true);
+		Reporter.log("****Invoice_234Test****", true);
 		String excelpath=flib.getPathFromPropertiesFile("testScript");
 		String prod=elib.getExcelDataById(excelpath, "System", "tc_02", "Product Name");
 		String camp=elib.getExcelDataById(excelpath, "System", "tc_02", "Campaign name");
