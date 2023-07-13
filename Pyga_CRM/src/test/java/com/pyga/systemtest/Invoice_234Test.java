@@ -128,6 +128,7 @@ v.getCreateVendor_btn().click();
 //Give Vendor name:
 String vendorname=vend+str;
 cv.getVendorname_txtbox().sendKeys(vendorname);
+cv.getSave_btn().click();
 String confirmvendor=vi.getVendor_name().getText().trim();
 assertEquals(confirmvendor, vendorname,"Vendor is not created **");
 Reporter.log("Vendor is created and verified", true);
