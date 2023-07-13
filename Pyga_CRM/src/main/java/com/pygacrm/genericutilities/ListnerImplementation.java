@@ -38,7 +38,7 @@ public class ListnerImplementation implements ITestListener{
 		Random random = new Random();
 		int randNum=random.nextInt(1000);
 		ExtentSparkReporter spark= new ExtentSparkReporter("ExtentReport/Report.html"+randNum);
-		spark.config().setTheme(Theme.STANDARD);
+		spark.config().setTheme(Theme.DARK);
 		spark.config().setDocumentTitle("ExtentReport");
 		spark.config().setReportName("Shiba Shankar");
 		

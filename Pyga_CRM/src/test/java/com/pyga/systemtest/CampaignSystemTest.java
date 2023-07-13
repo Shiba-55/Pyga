@@ -26,7 +26,7 @@ import genericutilities.FileUtility;
 import genericutilities.JavaUtility;
 import genericutilities.WebActionUtility;
 import net.bytebuddy.utility.RandomString;*/
-//@Listeners(com.pygacrm.genericutilities.ListnerImplementation.class)
+@Listeners(com.pygacrm.genericutilities.ListnerImplementation.class)
 public class CampaignSystemTest extends BaseClass {
 	//@Test(retryAnalyzer = com.pygacrm.genericutilities.RetryImplementation.class)
 	@Test(groups= {"smokeTest","regressionTest"})
