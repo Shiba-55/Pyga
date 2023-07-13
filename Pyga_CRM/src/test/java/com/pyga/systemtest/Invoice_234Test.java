@@ -1,4 +1,6 @@
 package com.pyga.systemtest;
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -14,6 +16,7 @@ import com.pygacrm.objectrepository.CreateNewOrganization;
 import com.pygacrm.objectrepository.CreateNewProductPage;
 import com.pygacrm.objectrepository.CreateNewQuote;
 import com.pygacrm.objectrepository.CreateNewSales_OrderPage;
+import com.pygacrm.objectrepository.CreateNewVendorPage;
 import com.pygacrm.objectrepository.HomePage;
 import com.pygacrm.objectrepository.InvoiceInformationpage;
 import com.pygacrm.objectrepository.InvoicePage;
@@ -30,6 +33,8 @@ import com.pygacrm.objectrepository.QuotePopuuPage;
 import com.pygacrm.objectrepository.SalesOrderInformationPage;
 import com.pygacrm.objectrepository.SalesOrderPage;
 import com.pygacrm.objectrepository.SalesOrderPopupPage;
+import com.pygacrm.objectrepository.VendorInformationPage;
+import com.pygacrm.objectrepository.VendorPage;
 import com.pygacrm.objectrepository.VendorPopupPage;
 
 import com.pygacrm.genericutilities.*;
@@ -54,7 +59,7 @@ public class Invoice_234Test extends BaseClass {
 		String unit_price=elib.getExcelDataById(excelpath, "System", "tc_02", "unit_price");
 		String qtyinstock=elib.getExcelDataById(excelpath, "System", "tc_02", "qtyinstock");
 		String qtyindemand=elib.getExcelDataById(excelpath, "System", "tc_02", "qtyindemand");
-		String vedorname=elib.getExcelDataById(excelpath, "System", "tc_02", "Vedor name");
+		//String vedorname=elib.getExcelDataById(excelpath, "System", "tc_02", "Vedor name");
 		/* campaign data */
 		String targetaudience=elib.getExcelDataById(excelpath, "System", "tc_02", "targetaudience");
 		String sponsor=elib.getExcelDataById(excelpath, "System", "tc_02", "sponsor");
@@ -80,6 +85,8 @@ public class Invoice_234Test extends BaseClass {
 		String annualrevenue=elib.getExcelDataById(excelpath, "System", "tc_02", "annualrevenue");
 		String Opportunityname=elib.getExcelDataById(excelpath, "System", "tc_02", "Opportunityname");
 		String qty=elib.getExcelDataById(excelpath, "System", "tc_02", "qty");
+		
+		String vend=elib.getExcelDataById(excelpath, "System", "tc_04", "Vedor name");
 		
 		String str=ju.getRandomstring();
 
@@ -110,6 +117,20 @@ public class Invoice_234Test extends BaseClass {
 		CreateNewInvoicePage cinv= new CreateNewInvoicePage(driver);
 		InvoiceInformationpage ii= new InvoiceInformationpage(driver);
 		SalesOrderPopupPage sp = new SalesOrderPopupPage(driver);
+		VendorPage v= new VendorPage(driver);
+		CreateNewVendorPage cv= new CreateNewVendorPage(driver);
+		VendorInformationPage vi= new VendorInformationPage(driver);
+		
+		//Click on Vendor and create a vendor
+		h.getVendors_link().click();
+//click on create vendor
+v.getCreateVendor_btn().click();
+//Give Vendor name:
+String vendorname=vend+str;
+cv.getVendorname_txtbox().sendKeys(vendorname);
+String confirmvendor=vi.getVendor_name().getText().trim();
+assertEquals(confirmvendor, vendorname,"Vendor is not created **");
+Reporter.log("Vendor is created and verified", true);
 		//Click on Product and create a product by adding vendor
 		w.waitAndClick(h.getProducts_link());
 		//h.getProducts_link().click();
@@ -136,11 +157,11 @@ public class Invoice_234Test extends BaseClass {
 		String pwh = driver.getWindowHandle();
 		cp.getVendorname_add_btn().click();
 		w.swithToWindowBasedOnURL("module=Vendors");
-		vp.getSearchbox().sendKeys(vedorname);
+		vp.getSearchbox().sendKeys(vendorname);
 		WebElement in = vp.getSearch_listbox();
 		w.select("vendorname", in);
 		vp.getSearch_btn().click();
-		vp.getSearchedVendor(driver, vedorname).click();
+		vp.getSearchedVendor(driver, vendorname).click();
 		driver.switchTo().window(pwh);
 		//Select Manufacturer:		AltvetPet Inc.
 		WebElement manufacturer = cp.getManufacturer_listbox();
