@@ -33,6 +33,7 @@ public class CampaignSystemTest extends BaseClass {
 	public void createcCampaign() throws Throwable {
 	// Changes done from git hub
 		//git
+		Reporter.log("CampaignSystemTest", true);
 		String excelpath=flib.getPathFromPropertiesFile("testScript");
 		String vend=elib.getExcelDataById(excelpath, "System", "tc_01", "Vedor name");
 		String prod=elib.getExcelDataById(excelpath, "System", "tc_01", "Product Name");
