@@ -1,12 +1,18 @@
 package com.pygacrm.genericutilities;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -262,6 +268,21 @@ public class WebActionUtility {
 		   Actions act = new Actions(driver);
 		   act.sendKeys(Keys.ENTER).perform();
 	   } 
+	   
+	   public static String takescreenshot(WebDriver driver,String name) {
+		   TakesScreenshot takesscreenshot = (TakesScreenshot) driver;
+			File src = takesscreenshot.getScreenshotAs(OutputType.FILE);
+			String datetime=LocalDateTime.now().toString().replaceAll(" ", "_").replaceAll(":", "_");
+			File dest= new File("./Screenshots/"+name+".png");
+			try {
+				FileUtils.copyFile(src, dest);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			String s="./Screenshots/"+name+".png";
+			return s;
+	   }
 
 
 
