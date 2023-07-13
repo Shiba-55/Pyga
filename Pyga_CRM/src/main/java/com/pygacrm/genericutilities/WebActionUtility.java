@@ -273,14 +273,14 @@ public class WebActionUtility {
 		   TakesScreenshot takesscreenshot = (TakesScreenshot) driver;
 			File src = takesscreenshot.getScreenshotAs(OutputType.FILE);
 			String datetime=LocalDateTime.now().toString().replaceAll(" ", "_").replaceAll(":", "_");
-			File dest= new File("./Screenshots/"+name+".png");
+			File dest= new File("./Screenshots/"+name+"_"+datetime+".png");
 			try {
 				FileUtils.copyFile(src, dest);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			String s="./Screenshots/"+name+".png";
+			String s="./Screenshots/"+name+"_"+datetime+".png";
 			return s;
 	   }
 
