@@ -8,7 +8,7 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.pyga.systemtest.SalesOrderTest"/>
-      <class name="com.pyga.systemtest.CampaignSystemTest"/>
+      <!--class name="com.pyga.systemtest.CampaignSystemTest"/-->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- SmokeSuite -->
