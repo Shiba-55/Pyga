@@ -5,7 +5,7 @@
 		<listener class-name="com.pygacrm.genericutilities.ListnerImplementation"></listener>
 		<listener class-name="com.pygacrm.genericutilities.Itransform"></listener>
 	</listeners>
-  <test thread-count="5" name="Test">
+  <test thread-count="3" name="Test">
     <classes>
       <class name="com.pyga.systemtest.SalesOrderTest"/>
       <!--class name="com.pyga.systemtest.CampaignSystemTest"/-->
